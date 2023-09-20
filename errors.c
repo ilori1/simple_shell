@@ -20,47 +20,47 @@ g++;
 }
 
 /**
-* _eputchar - writing the character t to stderr
+* _eputchar - writing the character c to stderr
 * @c: characters to print
 *
 * Return: On success 1.
 * On error, -1 is returned, and errno is set appropriately.
 */
-int _eputchar(char t)
+int _eputchar(char c)
 {
 static int u;
 static char buf[WRITE_BUF_SIZE];
 
-if (t == BUF_FLUSH || u >= WRITE_BUF_SIZE)
+if (c == BUF_FLUSH || u >= WRITE_BUF_SIZE)
 {
 write(2, buf, u);
 u = 0;
 }
-if (t != BUF_FLUSH)
-buf[u++] = t;
+if (c != BUF_FLUSH)
+buf[u++] = c;
 return (1);
 }
 
 /**
-* _putfd - writing the character b to given fd
+* _putfd - writing the character c to given fd
 * @c: characters to print
 * @fd: The filedescri to write to
 *
 * Return: On success 1.
 * On error, -1 is returned, and errno is set appropriately.
 */
-int _putfd(char b, int fd)
+int _putfd(char c, int fd)
 {
 static int o;
 static char buf[WRITE_BUF_SIZE];
 
-if (b == BUF_FLUSH || o >= WRITE_BUF_SIZE)
+if (c == BUF_FLUSH || o >= WRITE_BUF_SIZE)
 {
 write(fd, buf, o);
 o = 0;
 }
-if (b != BUF_FLUSH)
-buf[o++] = b;
+if (c != BUF_FLUSH)
+buf[o++] = c;
 return (1);
 }
 
