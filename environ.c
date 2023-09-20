@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
-* _myenvi - To  prints the current environment
+* _myenv - To  prints the current environment
 * @info:  And structure containing potential arg its Used to maintain
 *          constant function prototypes.
 * Return: Always 0
@@ -13,7 +13,7 @@ return (0);
 }
 
 /**
-* _getenvi - To gets the value of an envi variable
+* _getenv - To gets the value of an envi variable
 * @info:  And structure containing potential arg its Used to maintain
 * @name: env var name
 *
@@ -35,7 +35,7 @@ return (NULL);
 }
 
 /**
-* _mysetenvi - To Initialize a new envir variable,
+* _mysetenv - To Initialize a new envir variable,
 *              or modify an existing one
 * @info:  And structure containing potential arg its Used to maintain
 *         constant function prototype.
@@ -54,7 +54,7 @@ return (1);
 }
 
 /**
-* _myunsetenvi - It Removes an envir variable
+* _myunsetenv - It Removes an envir variable
 * @info:  And structure containing potential arg its Used to maintain
 *         constant funct prototypes.
 * Return: Always 0
