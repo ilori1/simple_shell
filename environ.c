@@ -26,9 +26,9 @@ char *p;
 
 while (node)
 {
-u = starts_with(node->str, name);
-if (u && *p)
-return (u);
+p = starts_with(node->str, name);
+if (p && *p)
+return (p);
 node = node->next;
 }
 return (NULL);
