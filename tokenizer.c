@@ -32,7 +32,7 @@ r++;
 k = 0;
 while (!is_delim(str[r + k], d) && str[r + k])
 k++;
-s[j] = malloc((k + 1) * sizeof(char));
+s[k] = malloc((k + 1) * sizeof(char));
 if (!s[g])
 {
 for (k = 0; k < g; k++)
@@ -41,7 +41,7 @@ free(s);
 return (NULL);
 }
 for (m = 0; m < k; m++)
-s[j][m] = str[r++];
+s[k][m] = str[r++];
 s[g][m] = 0;
 }
 s[g] = NULL;

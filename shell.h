@@ -134,7 +134,7 @@ char *_strncpy(char *, char *, int);
 char *_strncat(char *, char *, int);
 char *_strchr(char *, char);
 char **strtow(char *, char *);
-char **strtow2(char *, char *);
+char **strtow2(char *, char );
 char *_memset(char *, char, unsigned int);
 void ffree(char **);
 void *_realloc(void *, unsigned int, unsigned int);
