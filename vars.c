@@ -10,28 +10,28 @@
 */
 int is_chain(info_t *info, char *buf, size_t *p)
 {
-size_t p = *p;
+size_t u = *p;
 
-if (buf[p] == '|' && buf[p + 1] == '|')
+if (buf[u] == '|' && buf[u + 1] == '|')
 {
-buf[p] = 0;
-p++;
+buf[u] = 0;
+u++;
 info->cmd_buf_type = CMD_OR;
 }
-else if (buf[p] == '&' && buf[p + 1] == '&')
+else if (buf[u] == '&' && buf[u + 1] == '&')
 {
-buf[p] = 0;
-p++;
+buf[u] = 0;
+u++;
 info->cmd_buf_type = CMD_AND;
 }
-else if (buf[p] == ';') /* found end of this command */
+else if (buf[u] == ';') /* found end of this command */
 {
-buf[p] = 0; /* replace semicolon with null */
+buf[u] = 0; /* replace semicolon with null */
 info->cmd_buf_type = CMD_CHAIN;
 }
 else
 return (0);
-*p = p;
+*p = u;
 return (1);
 }
 
@@ -47,14 +47,14 @@ return (1);
 */
 void check_chain(info_t *info, char *buf, size_t *p, size_t i, size_t len)
 {
-size_t p = *p;
+size_t u = *p;
 
 if (info->cmd_buf_type == CMD_AND)
 {
 if (info->status)
 {
 buf[i] = 0;
-p = len;
+u = len;
 }
 }
 if (info->cmd_buf_type == CMD_OR)
@@ -62,11 +62,11 @@ if (info->cmd_buf_type == CMD_OR)
 if (!info->status)
 {
 buf[i] = 0;
-p = len;
+u = len;
 }
 }
 
-*p = p;
+*p = u;
 }
 
 /**
@@ -129,7 +129,7 @@ continue;
 node = node_starts_with(info->env, &info->argv[p][1], '=');
 if (node)
 {
-replace_string(&(info->argv[i]),
+replace_string(&(info->argv[p]),
 _strdup(_strchr(node->str, '=') + 1));
 continue;
 }
